@@ -38,7 +38,7 @@
         "laravel-mix": "^1.0"
     },
     "dependencies": {
-        "axios": "^0.17.0",
+        "axios": "^0.19.2",
         "element-ui": "^2.0.1",
         "global": "^4.3.2",
         "local-storage": "^1.4.2",
