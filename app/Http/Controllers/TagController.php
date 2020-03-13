@@ -16,7 +16,7 @@ class TagController extends Controller
     public function index()
     {
         //
-        $return = Tag::select('id','name')->get();
+        $return = Tag::select('id','name','individual_id')->get();
         return $this->success('获取成功', $return);
     }
 

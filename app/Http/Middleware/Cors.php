@@ -13,8 +13,6 @@ class Cors
      * @var array
      */
     private $domains = array(
-        'http://localhost:80',
-        'http://xtk.admin.kuangguo.cn'
     );
 
     /**
@@ -27,13 +25,10 @@ class Cors
     public function handle($request, Closure $next)
     {
         if (isset($request->server()['HTTP_ORIGIN'])) {
-            $origin = $request->server()['HTTP_ORIGIN'];
-            if (in_array($origin, $this->domains)) {
-                header('Access-Control-Allow-Credentials: true');
-                header('Access-Control-Allow-Origin: '.$origin);
-                header('Access-Control-Allow-Methods: GET,PUT,DELETE,POST');
-                header('Access-Control-Allow-Headers: Origin, Content-Type, Cookie, Accept, multipart/form-data, application/json, Authorization');
-            }
+            header('Access-Control-Allow-Credentials: true');
+            header('Access-Control-Allow-Origin: *');
+            header('Access-Control-Allow-Methods: GET,PUT,DELETE,POST');
+            header('Access-Control-Allow-Headers: Origin, Content-Type, Cookie, Accept, multipart/form-data, application/json, Authorization');
         }
 
         return $next($request);
